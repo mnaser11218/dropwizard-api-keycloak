@@ -1,5 +1,6 @@
 /home/mohammed/projects/dropwizard-backend-project/hello-world/src/main/java/com/example/HelloWorldApplication.java
 /home/mohammed/projects/dropwizard-backend-project/hello-world/src/main/java/com/example/HelloWorldConfiguration.java
 /home/mohammed/projects/dropwizard-backend-project/hello-world/src/main/java/com/example/HelloWorldResource.java
+/home/mohammed/projects/dropwizard-backend-project/hello-world/src/main/java/com/example/KeycloakAuthFilter.java
 /home/mohammed/projects/dropwizard-backend-project/hello-world/src/main/java/com/example/Person.java
 /home/mohammed/projects/dropwizard-backend-project/hello-world/src/main/java/com/example/PersonDAO.java

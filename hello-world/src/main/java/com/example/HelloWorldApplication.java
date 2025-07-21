@@ -19,6 +19,12 @@ public class HelloWorldApplication extends Application<HelloWorldConfiguration> 
 
         final PersonDAO personDAO = jdbi.onDemand(PersonDAO.class);
         env.jersey().register(new HelloWorldResource(personDAO));
+
+        // Register resources
+        env.jersey().register(new HelloWorldResource(personDAO));
+        // Register Keycloak authentication filter
+        env.jersey().register(new com.example.auth.KeycloakAuthFilter());
+
     }
 
 }
