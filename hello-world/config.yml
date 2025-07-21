@@ -1,0 +1,22 @@
+server:
+  applicationConnectors:
+    - type: http
+      port: 8080
+  adminConnectors:
+    - type: http
+      port: 8081
+
+database:
+  driverClass: org.postgresql.Driver
+  user: postgres
+  password: mohammed
+  url: jdbc:postgresql://localhost:5432/hello_world_db
+  properties:
+    charSet: UTF-8
+  maxSize: 10
+  minSize: 1
+
+logging:
+  level: INFO
+  loggers:
+    com.example: DEBUG
