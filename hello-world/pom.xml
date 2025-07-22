@@ -84,6 +84,11 @@
             <artifactId>dropwizard-auth</artifactId>
             <version>${dropwizard.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.nimbusds</groupId>
+            <artifactId>nimbus-jose-jwt</artifactId>
+            <version>9.37</version> <!-- or latest stable -->
+        </dependency>
     </dependencies>
 
     <build>

@@ -20,7 +20,7 @@ public class HelloWorldResource {
     }
 
     @GET
-    public List<Person> getAllPeople() {
+    public List<Person> getAllPeople(@Auth User user) {
         return personDAO.getAll();
     }
 
@@ -29,6 +29,15 @@ public class HelloWorldResource {
     public Person getPersonById(@PathParam("id") int id) {
         return personDAO.findById(id);
     }
+
+
+    @POST
+    @RolesAllowed("admin")
+    public Response createPerson(@Auth User user) {
+        return Response.ok("Person created by " + user.getName()).build();
+    }
+}
+
 
 //    @POST
 //    @Consumes(MediaType.APPLICATION_JSON)
@@ -44,10 +53,3 @@ public class HelloWorldResource {
 //                .build();
 //    }
 
-
-    @POST
-    @RolesAllowed("admin")
-    public Response createPerson(@Auth User user) {
-        return Response.ok("Person created by " + user.getName()).build();
-    }
-}

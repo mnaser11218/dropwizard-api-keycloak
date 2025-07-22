@@ -16,28 +16,35 @@ public class HelloWorldApplication extends Application<HelloWorldConfiguration> 
     public static void main(final String[] args) throws Exception {
         new HelloWorldApplication().run(args);
     }
-
     @Override
-    public void run(final HelloWorldConfiguration config, final Environment env) {
+    public void run(final HelloWorldConfiguration config, final Environment env) throws Exception {
         final JdbiFactory factory = new JdbiFactory();
         final Jdbi jdbi = factory.build(env, config.getDataSourceFactory(), "postgresql");
+        String jwksUrl = "http://localhost:8081/realms/persons-project/protocol/openid-connect/certs";
 
         final PersonDAO personDAO = jdbi.onDemand(PersonDAO.class);
         env.jersey().register(new HelloWorldResource(personDAO));
 
-        // Register resources
-        env.jersey().register(new HelloWorldResource(personDAO));
-        // Register Keycloak authentication filter
-        env.jersey().register(new com.example.auth.KeycloakAuthFilter());
+
+        // this works for authentication but not for authorization
+//        env.jersey().register(new AuthDynamicFeature(
+//                new OAuthCredentialAuthFilter.Builder<User>()
+//                        .setAuthenticator(new KeycloakAuthenticator(jwksUrl))
+//                        .setPrefix("Bearer")
+//                        .buildAuthFilter()
+//        ));
+//        env.jersey().register(new AuthValueFactoryProvider.Binder<>(User.class));
+
         env.jersey().register(new AuthDynamicFeature(
                 new OAuthCredentialAuthFilter.Builder<User>()
-                        .setAuthenticator(new KeycloakAuthenticator())
+                        .setAuthenticator(new KeycloakAuthenticator(jwksUrl))
                         .setAuthorizer(new RoleAuthorizer())
                         .setPrefix("Bearer")
                         .buildAuthFilter()
         ));
 
-
+        env.jersey().register(new AuthValueFactoryProvider.Binder<>(User.class));
+        env.jersey().register(RolesAllowedDynamicFeature.class);
     }
 
 }
