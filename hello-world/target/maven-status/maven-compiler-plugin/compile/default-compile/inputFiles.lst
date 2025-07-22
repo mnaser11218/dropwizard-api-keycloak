@@ -4,3 +4,6 @@
 /home/mohammed/projects/dropwizard-backend-project/hello-world/src/main/java/com/example/KeycloakAuthFilter.java
 /home/mohammed/projects/dropwizard-backend-project/hello-world/src/main/java/com/example/Person.java
 /home/mohammed/projects/dropwizard-backend-project/hello-world/src/main/java/com/example/PersonDAO.java
+/home/mohammed/projects/dropwizard-backend-project/hello-world/src/main/java/com/example/RoleAuthorizer.java
+/home/mohammed/projects/dropwizard-backend-project/hello-world/src/main/java/com/example/User.java
+/home/mohammed/projects/dropwizard-backend-project/hello-world/src/main/java/com/example/auth/KeycloakAuthenticator.java

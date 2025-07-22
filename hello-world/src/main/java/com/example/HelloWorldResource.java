@@ -1,5 +1,7 @@
 package com.example;
 
+import io.dropwizard.auth.Auth;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
@@ -28,17 +30,24 @@ public class HelloWorldResource {
         return personDAO.findById(id);
     }
 
+//    @POST
+//    @Consumes(MediaType.APPLICATION_JSON)
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public Response createPerson(Person person) {
+//        int id = personDAO.createPerson(person.getName());
+//
+//        Map<String, Object> response = new HashMap<>();
+//        response.put("id", id);
+//
+//        return Response.status(Response.Status.CREATED)
+//                .entity(response)
+//                .build();
+//    }
+
+
     @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response createPerson(Person person) {
-        int id = personDAO.createPerson(person.getName());
-
-        Map<String, Object> response = new HashMap<>();
-        response.put("id", id);
-
-        return Response.status(Response.Status.CREATED)
-                .entity(response)
-                .build();
+    @RolesAllowed("admin")
+    public Response createPerson(@Auth User user) {
+        return Response.ok("Person created by " + user.getName()).build();
     }
 }

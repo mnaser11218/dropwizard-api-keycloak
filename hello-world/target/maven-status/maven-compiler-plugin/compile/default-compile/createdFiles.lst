@@ -1,6 +1,9 @@
+com/example/RoleAuthorizer.class
+com/example/User.class
 com/example/HelloWorldResource.class
 com/example/Person.class
 com/example/auth/KeycloakAuthFilter.class
+com/example/auth/KeycloakAuthenticator.class
 com/example/PersonDAO.class
 com/example/HelloWorldApplication.class
 com/example/HelloWorldConfiguration.class
