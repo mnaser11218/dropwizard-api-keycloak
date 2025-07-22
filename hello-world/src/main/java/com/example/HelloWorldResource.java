@@ -33,7 +33,9 @@ public class HelloWorldResource {
 
     @POST
     @RolesAllowed("admin")
-    public Response createPerson(@Auth User user) {
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response createPerson(@Auth User user, Person person) {
+        personDAO.createPerson(person.getName());
         return Response.ok("Person created by " + user.getName()).build();
     }
 }

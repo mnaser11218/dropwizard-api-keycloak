@@ -68,16 +68,16 @@
             <version>42.7.3</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.keycloak</groupId>
-            <artifactId>keycloak-core</artifactId>
-            <version>24.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.keycloak</groupId>
-            <artifactId>keycloak-adapter-core</artifactId>
-            <version>24.0.1</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.keycloak</groupId>-->
+<!--            <artifactId>keycloak-core</artifactId>-->
+<!--            <version>24.0.1</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.keycloak</groupId>-->
+<!--            <artifactId>keycloak-adapter-core</artifactId>-->
+<!--            <version>24.0.1</version>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>io.dropwizard</groupId>
